@@ -25,6 +25,17 @@ export default function storeReducer(store, action = {}) {
         ...store,
         vehicles: action.payload,
       };
+
+    case 'ADD_TO_FAV':
+      if (!store.favourites.includes(action.payload)) {
+        return {
+          ...store,
+          favourites: [...store.favourites, action.payload],
+        };
+      } else {
+        return store;
+      }
+
     default:
       throw Error('Unknown action.');
   }

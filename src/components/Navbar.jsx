@@ -23,7 +23,7 @@ const Navbar = () => {
             aria-expanded='false'
           >
             Favourites &nbsp;
-            <span className='bg-secondary p-1 rounded'>{store.favourites.length || 0}</span>
+            <span className='bg-light text-dark p-1 rounded'>{store.favourites.length || 0}</span>
             &nbsp;
           </a>
 

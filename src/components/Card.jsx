@@ -1,6 +1,8 @@
-import React from 'react';
+import useGlobalReducer from '../hooks/useGlobalReducer';
 
 const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population, model, crew, manufacturer }) => {
+  const { dispatch } = useGlobalReducer();
+
   return (
     <div className='card' style={{ width: '18rem' }}>
       <img src='/src/assets/placeholder.png' className='card-img-top' alt='placeholder image' />
@@ -19,7 +21,7 @@ const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population
           <a href='#' className='btn btn-primary'>
             Learn more!
           </a>
-          <div className='pt-2'>
+          <div onClick={() => dispatch({ type: 'ADD_TO_FAV', payload: name })} className='pt-2'>
             <i className='fa-solid fa-heart text-danger fs-3'></i>
           </div>
         </div>

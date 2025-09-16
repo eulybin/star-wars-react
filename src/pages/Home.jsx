@@ -21,6 +21,8 @@ const Home = () => {
     init();
   }, []);
 
+  console.log(store.favourites);
+
   return (
     <div className='container'>
       <div className='row'>
