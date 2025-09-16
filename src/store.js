@@ -3,6 +3,7 @@ export const actionTypes = {
   getPlanets: 'GET_PLANETS',
   getVehicles: 'GET_VEHICLES',
   addToFav: 'ADD_TO_FAV',
+  deleteFav: 'DELETE_FAV',
 };
 
 export const initialStore = () => {
@@ -42,6 +43,13 @@ export default function storeReducer(store, action = {}) {
       } else {
         return store;
       }
+
+    case actionTypes.deleteFav:
+      const updatedFavArray = store.favourites.filter((fav) => fav !== action.payload);
+      return {
+        ...store,
+        favourites: updatedFavArray,
+      };
 
     default:
       throw Error('Unknown action.');

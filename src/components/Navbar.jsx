@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import useGlobalReducer from '../hooks/useGlobalReducer';
+import { Link } from 'react-router-dom';
+import { actionTypes } from '../store';
 
 const Navbar = () => {
-  const { store } = useGlobalReducer();
+  const { store, dispatch } = useGlobalReducer();
   return (
     <nav className='navbar navbar-light bg-light p-2 mb-4'>
       <div className='container-fluid'>
@@ -21,6 +21,7 @@ const Navbar = () => {
             role='button'
             data-bs-toggle='dropdown'
             aria-expanded='false'
+            data-bs-auto-close='false'
           >
             Favourites &nbsp;
             <span className='bg-light text-dark p-1 rounded'>{store.favourites.length || 0}</span>
@@ -28,24 +29,21 @@ const Navbar = () => {
           </a>
 
           <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
-            <li>
-              <a className='dropdown-item' href='#'>
-                Action
-              </a>
-            </li>
-            <li>
-              <a className='dropdown-item' href='#'>
-                Another action
-              </a>
-            </li>
-            <li>
-              <hr className='dropdown-divider' />
-            </li>
-            <li>
-              <a className='dropdown-item' href='#'>
-                Something else here
-              </a>
-            </li>
+            {store.favourites.length > 0 ? (
+              store.favourites.map((item) => {
+                return (
+                  <li key={item} className='dropdown-item'>
+                    {item}{' '}
+                    <i
+                      onClick={() => dispatch({ type: actionTypes.deleteFav, payload: item })}
+                      className='fa-solid fa-trash'
+                    ></i>
+                  </li>
+                );
+              })
+            ) : (
+              <li className='dropdown-item text-center fst-italic'>( empty )</li>
+            )}
           </ul>
         </div>
       </div>
