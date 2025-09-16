@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useGlobalReducer from '../hooks/useGlobalReducer';
 
 const Navbar = () => {
+  const { store } = useGlobalReducer();
   return (
     <nav className='navbar navbar-light bg-light p-2 mb-4'>
       <div className='container-fluid'>
@@ -21,7 +23,7 @@ const Navbar = () => {
             aria-expanded='false'
           >
             Favourites &nbsp;
-            <span className='bg-secondary p-1 rounded'>0</span>
+            <span className='bg-secondary p-1 rounded'>{store.favourites.length || 0}</span>
             &nbsp;
           </a>
 

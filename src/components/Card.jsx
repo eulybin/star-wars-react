@@ -20,7 +20,7 @@ const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population
             Learn more!
           </a>
           <div className='pt-2'>
-            <i className='fa-slab fa-regular fa-heart text-danger fs-3'></i>
+            <i className='fa-solid fa-heart text-danger fs-3'></i>
           </div>
         </div>
       </div>

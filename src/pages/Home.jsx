@@ -27,13 +27,13 @@ const Home = () => {
         <Navbar />
       </div>
       <div className='row mb-3'>
-        <h2 className='text-danger fs-1'>Characters</h2>
+        <h2 className='text-warning fs-1'>Characters ⭐️</h2>
       </div>
       <div className='row'>
         {store.characters &&
           store.characters.map((character, index) => {
             return (
-              <div key={index} className='col-3 mb-5'>
+              <div key={index} className='col-xxl-3 col-lg-4 col-md-6 mb-5'>
                 <Card
                   name={character.name}
                   gender={character.gender}
@@ -45,13 +45,13 @@ const Home = () => {
           })}
       </div>
       <div className='row mb-3'>
-        <h2 className='text-danger fs-1'>Planets</h2>
+        <h2 className='text-warning fs-1'>Planets 🪐</h2>
       </div>
       <div className='row'>
         {store.planets &&
           store.planets.map((planet, index) => {
             return (
-              <div key={index} className='col-3 mb-5'>
+              <div key={index} className='col-xxl-3 col-lg-4 col-md-6 mb-5'>
                 <Card
                   name={planet.name}
                   population={planet.population}
@@ -63,13 +63,13 @@ const Home = () => {
           })}
       </div>
       <div className='row mb-3'>
-        <h2 className='text-danger fs-1'>Vehicles</h2>
+        <h2 className='text-warning fs-1'>Vehicles 🚀</h2>
       </div>
       <div className='row'>
         {store.vehicles &&
           store.vehicles.map((vehicle, index) => {
             return (
-              <div key={index} className='col-3 mb-5'>
+              <div key={index} className='col-xxl-3 col-lg-4 col-md-6 mb-5'>
                 <Card
                   name={vehicle.name}
                   model={vehicle.model}
