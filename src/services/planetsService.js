@@ -8,7 +8,7 @@ export const getAllPlanets = async () => {
       throw new Error('Could not fetch all the planets!');
     }
     const data = await response.json();
-    return data['results'];
+    return data.results;
   } catch (error) {
     console.error(error);
   }

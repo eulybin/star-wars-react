@@ -8,7 +8,7 @@ export const getAllVehicles = async () => {
       throw new Error('Could not fetch all the vehicles!');
     }
     const data = await response.json();
-    return data['results'];
+    return data.results;
   } catch (error) {
     console.error(error);
   }

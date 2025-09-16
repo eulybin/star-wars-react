@@ -8,7 +8,7 @@ export const getAllPeople = async () => {
       throw new Error('Could not fetch all the people!');
     }
     const data = await response.json();
-    return data['results'];
+    return data.results;
   } catch (error) {
     console.error(error);
   }
