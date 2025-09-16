@@ -2,17 +2,28 @@ export const initialStore = () => {
   return {
     message: null,
     favourites: [],
+    characters: [],
+    planets: [],
+    vehicles: [],
   };
 };
 
 export default function storeReducer(store, action = {}) {
   switch (action.type) {
-    case 'add_task':
-      const { id, color } = action.payload;
-
+    case 'GET_CHARACTERS':
       return {
         ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo)),
+        characters: action.payload,
+      };
+    case 'GET_PLANETS':
+      return {
+        ...store,
+        planets: action.payload,
+      };
+    case 'GET_VEHICLES':
+      return {
+        ...store,
+        vehicles: action.payload,
       };
     default:
       throw Error('Unknown action.');

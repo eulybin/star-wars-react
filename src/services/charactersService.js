@@ -1,7 +1,7 @@
 import { BASE_URL } from '../utils/constants';
 
 // GET REQUEST FOR ALL PEOPLE
-export const getAllPeople = async () => {
+export const getAllCharacters = async () => {
   try {
     const response = await fetch(`${BASE_URL}/people`);
     if (!response.ok) {
