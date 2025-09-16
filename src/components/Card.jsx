@@ -1,4 +1,5 @@
 import useGlobalReducer from '../hooks/useGlobalReducer';
+import { actionTypes } from '../store';
 
 const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population, model, crew, manufacturer }) => {
   const { dispatch } = useGlobalReducer();
@@ -21,7 +22,7 @@ const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population
           <a href='#' className='btn btn-primary'>
             Learn more!
           </a>
-          <div onClick={() => dispatch({ type: 'ADD_TO_FAV', payload: name })} className='pt-2'>
+          <div onClick={() => dispatch({ type: actionTypes.addToFav, payload: name })} className='pt-2'>
             <i className='fa-solid fa-heart text-danger fs-3'></i>
           </div>
         </div>

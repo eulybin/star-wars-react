@@ -1,3 +1,10 @@
+export const actionTypes = {
+  getCharacters: 'GET_CHARACTERS',
+  getPlanets: 'GET_PLANETS',
+  getVehicles: 'GET_VEHICLES',
+  addToFav: 'ADD_TO_FAV',
+};
+
 export const initialStore = () => {
   return {
     message: null,
@@ -10,23 +17,23 @@ export const initialStore = () => {
 
 export default function storeReducer(store, action = {}) {
   switch (action.type) {
-    case 'GET_CHARACTERS':
+    case actionTypes.getCharacters:
       return {
         ...store,
         characters: action.payload,
       };
-    case 'GET_PLANETS':
+    case actionTypes.getPlanets:
       return {
         ...store,
         planets: action.payload,
       };
-    case 'GET_VEHICLES':
+    case actionTypes.getVehicles:
       return {
         ...store,
         vehicles: action.payload,
       };
 
-    case 'ADD_TO_FAV':
+    case actionTypes.addToFav:
       if (!store.favourites.includes(action.payload)) {
         return {
           ...store,

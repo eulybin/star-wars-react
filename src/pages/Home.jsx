@@ -1,4 +1,5 @@
 import useGlobalReducer from '../hooks/useGlobalReducer.jsx';
+import { actionTypes } from '../store.js';
 import { useEffect } from 'react';
 import { getAllCharacters } from '../services/charactersService.js';
 import { getAllPlanets } from '../services/planetsService.js';
@@ -12,11 +13,11 @@ const Home = () => {
   useEffect(() => {
     const init = async () => {
       const characters = await getAllCharacters();
-      dispatch({ type: 'GET_CHARACTERS', payload: characters });
+      dispatch({ type: actionTypes.getCharacters, payload: characters });
       const planets = await getAllPlanets();
-      dispatch({ type: 'GET_PLANETS', payload: planets });
+      dispatch({ type: actionTypes.getPlanets, payload: planets });
       const vehicles = await getAllVehicles();
-      dispatch({ type: 'GET_VEHICLES', payload: vehicles });
+      dispatch({ type: actionTypes.getVehicles, payload: vehicles });
     };
     init();
   }, []);
