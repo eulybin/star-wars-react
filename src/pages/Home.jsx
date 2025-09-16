@@ -4,6 +4,7 @@ import { getAllPeople } from '../services/peopleService.js';
 import { getAllPlanets } from '../services/planetsService.js';
 import { getAllVehicles } from '../services/vehiclesService.js';
 import Card from '../components/Card.jsx';
+import Navbar from '../components/Navbar.jsx';
 
 const Home = () => {
   const { store, dispatch } = useGlobalReducer();
@@ -20,7 +21,10 @@ const Home = () => {
   console.log(data);
 
   return (
-    <div className='mt-5 container'>
+    <div className='container'>
+      <div className='row'>
+        <Navbar />
+      </div>
       <div className='row mb-3'>
         <h2 className='text-danger fs-1'>Characters</h2>
       </div>
