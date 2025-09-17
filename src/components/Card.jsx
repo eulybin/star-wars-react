@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import useGlobalReducer from '../hooks/useGlobalReducer';
 import { actionTypes } from '../store';
 
@@ -19,9 +20,9 @@ const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population
         {crew && <span className='card-text d-block mb-2'>Crew: {crew}</span>}
         {manufacturer && <span className='card-text d-block mb-2'>Manufacturer: {manufacturer}</span>}
         <div className='d-flex justify-content-between'>
-          <a href='#' className='btn btn-primary'>
+          <Link to={`details/1`} className='btn btn-primary'>
             Learn more!
-          </a>
+          </Link>
           <div onClick={() => dispatch({ type: actionTypes.addToFav, payload: name })} className='pt-2'>
             <i className='fa-solid fa-heart text-danger fs-3'></i>
           </div>
