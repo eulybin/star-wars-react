@@ -1,11 +1,11 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Details from './pages/Details';
-import Navbar from './components/Navbar';
+import Layout from './components/Layout';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
+    <Route element={<Layout />}>
       <Route path='/' element={<Home />} />
       <Route path='/details' element={<Details />} />
     </Route>

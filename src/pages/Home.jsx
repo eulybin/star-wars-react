@@ -26,9 +26,6 @@ const Home = () => {
 
   return (
     <div className='container'>
-      <div className='row'>
-        <Navbar />
-      </div>
       <div className='row mb-3'>
         <h2 className='text-warning fs-1'>Characters ⭐️</h2>
       </div>
