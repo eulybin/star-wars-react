@@ -5,7 +5,6 @@ import { getAllCharacters } from '../services/charactersService.js';
 import { getAllPlanets } from '../services/planetsService.js';
 import { getAllVehicles } from '../services/vehiclesService.js';
 import Card from '../components/Card.jsx';
-import Navbar from '../components/Navbar.jsx';
 
 const Home = () => {
   const { store, dispatch } = useGlobalReducer();

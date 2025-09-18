@@ -1,9 +1,16 @@
-import { Link } from 'react-router-dom';
 import useGlobalReducer from '../hooks/useGlobalReducer';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { actionTypes } from '../store';
 
 const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population, model, crew, manufacturer }) => {
-  const { dispatch } = useGlobalReducer();
+  const { store, dispatch } = useGlobalReducer();
+  const [isFavourite, setIsFavourite] = useState(false);
+
+  const handleAddToFav = () => {
+    setIsFavourite((prevFavState) => !prevFavState);
+    dispatch({ type: actionTypes.addToFav, payload: { name, isFavourite } });
+  };
 
   return (
     <div className='card' style={{ width: '18rem' }}>
@@ -19,14 +26,18 @@ const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population
         {model && <span className='card-text d-block mb-2'>Model: {model}</span>}
         {crew && <span className='card-text d-block mb-2'>Crew: {crew}</span>}
         {manufacturer && <span className='card-text d-block mb-2'>Manufacturer: {manufacturer}</span>}
-        <div className='d-flex justify-content-between'>
-          <Link to={`details/1`} className='btn btn-primary'>
+        <div className='d-flex justify-content-between mt-3'>
+          <Link to={`details`} className='btn border border-2 border-primary learn-more'>
             Learn more!
           </Link>
-          <div onClick={() => dispatch({ type: actionTypes.addToFav, payload: name })} className='pt-2'>
-            <i className='fa-solid fa-heart text-danger fs-3'></i>
-          </div>
+          <button
+            onClick={handleAddToFav}
+            className='heart-icon border border-danger border-2 rounded p-1 d-flex justify-content-center align-items-center'
+          >
+            <i className={`fa-${isFavourite ? 'solid' : 'regular'} fa-heart fs-3`}></i>
+          </button>
         </div>
+        {isFavourite && <p>fav</p>}
       </div>
     </div>
   );

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Details = () => {
   return (
-    <div className='container bg-white'>
-      <div className='row p-3'>
+    <div className='container bg-white p-5'>
+      <div className='row'>
         <div className='col-6'>
           <img className='img-fluid' src='/src/assets/placeholder.png' alt='placeholder img' />
         </div>

@@ -8,7 +8,6 @@ export const actionTypes = {
 
 export const initialStore = () => {
   return {
-    message: null,
     favourites: [],
     characters: [],
     planets: [],
@@ -35,10 +34,10 @@ export default function storeReducer(store, action = {}) {
       };
 
     case actionTypes.addToFav:
-      if (!store.favourites.includes(action.payload)) {
+      if (!store.favourites.includes(action.payload.name)) {
         return {
           ...store,
-          favourites: [...store.favourites, action.payload],
+          favourites: [...store.favourites, action.payload.name],
         };
       } else {
         return store;

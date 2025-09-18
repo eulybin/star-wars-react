@@ -5,7 +5,7 @@ import { actionTypes } from '../store';
 const Navbar = () => {
   const { store, dispatch } = useGlobalReducer();
   return (
-    <nav className='navbar navbar-light bg-light p-2 mb-4'>
+    <nav className='navbar navbar-light bg-light px-5 mb-4'>
       <div className='container-fluid'>
         <div className='logo'>
           <Link to='/' className='navbar-brand'>
