@@ -39,8 +39,6 @@ export default function storeReducer(store, action = {}) {
       for (const favObj of store.favourites) {
         favNamesArr.push(favObj.name);
       }
-
-      console.log('FAV NAMES ARR: ', favNamesArr);
       if (!favNamesArr.includes(action.payload.name)) {
         return {
           ...store,

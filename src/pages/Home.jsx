@@ -32,6 +32,8 @@ const Home = () => {
             return (
               <div key={index} className='col-xxl-3 col-lg-4 col-md-6 mb-5'>
                 <Card
+                  id={index + 1}
+                  entity={'characters'}
                   name={character.name}
                   gender={character.gender}
                   hairColor={character['hair_color']}
@@ -50,6 +52,8 @@ const Home = () => {
             return (
               <div key={index} className='col-xxl-3 col-lg-4 col-md-6 mb-5'>
                 <Card
+                  id={index + 1}
+                  entity={'planets'}
                   name={planet.name}
                   population={planet.population}
                   diameter={planet.diameter}
@@ -68,6 +72,8 @@ const Home = () => {
             return (
               <div key={index} className='col-xxl-3 col-lg-4 col-md-6 mb-5'>
                 <Card
+                  id={index + 1}
+                  entity={'vehicles'}
                   name={vehicle.name}
                   model={vehicle.model}
                   crew={vehicle.crew}

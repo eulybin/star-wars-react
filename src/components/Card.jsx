@@ -3,7 +3,20 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { actionTypes } from '../store';
 
-const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population, model, crew, manufacturer }) => {
+const Card = ({
+  name,
+  gender,
+  hairColor,
+  eyeColor,
+  terrain,
+  diameter,
+  population,
+  model,
+  crew,
+  manufacturer,
+  id,
+  entity,
+}) => {
   const { dispatch } = useGlobalReducer();
   const [isFavourite, setIsFavourite] = useState(false);
 
@@ -27,7 +40,7 @@ const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population
         {crew && <span className='card-text d-block mb-2'>Crew: {crew}</span>}
         {manufacturer && <span className='card-text d-block mb-2'>Manufacturer: {manufacturer}</span>}
         <div className='d-flex justify-content-between mt-3'>
-          <Link to={`details`} className='btn border border-2 border-primary learn-more'>
+          <Link to={`details/${entity}/${id}`} className='btn border border-2 border-primary learn-more'>
             Learn more!
           </Link>
           <button

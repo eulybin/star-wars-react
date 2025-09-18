@@ -1,14 +1,43 @@
-import React from 'react';
+import useGlobalReducer from '../hooks/useGlobalReducer';
+import { useParams } from 'react-router-dom';
 
 const Details = () => {
+  const { store } = useGlobalReducer();
+  const { entity, id } = useParams();
+  const entityToDisplay = store[entity][id - 1];
+  let entityToDisplayObject = {};
+
+  switch (entity) {
+    case 'characters':
+      entityToDisplayObject = {
+        name: entityToDisplay.name,
+        birthYear: entityToDisplay['birth_year'],
+      };
+      break;
+    case 'planets':
+      entityToDisplayObject = {
+        name: entityToDisplay.name,
+        climate: entityToDisplay.climate,
+      };
+      break;
+    case 'vehicles':
+      entityToDisplayObject = {
+        name: entityToDisplay.name,
+        crew: entityToDisplay.crew,
+      };
+      break;
+  }
+
+  console.log(entity, entityToDisplayObject);
+
   return (
     <div className='container bg-white p-5'>
       <div className='row'>
-        <div className='col-6'>
+        <div className='col-lg-6'>
           <img className='img-fluid' src='/src/assets/placeholder.png' alt='placeholder img' />
         </div>
-        <div className='col-6 p-3 text-center d-flex align-items-center flex-column justify-content-center'>
-          <h1 className='mb-4'>Luke Skywalker</h1>
+        <div className='col-lg-6 p-3 text-center d-flex align-items-center flex-column justify-content-center'>
+          <h1 className='mb-4'>{entityToDisplayObject.name}</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae molestias voluptas eius, adipisci
             similique dolore amet illo esse quis suscipit officia eum incidunt molestiae itaque aspernatur quos
@@ -19,7 +48,9 @@ const Details = () => {
       </div>
       <div className='divider'></div>
       <div className='row'>
-        <div className='col-2'>1</div>
+        <div className='col-2'>
+          {entityToDisplayObject.birthYear || entityToDisplayObject.climate || entityToDisplayObject.crew}
+        </div>
         <div className='col-2'>2</div>
         <div className='col-2'>3</div>
         <div className='col-2'>4</div>
