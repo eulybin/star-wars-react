@@ -4,6 +4,11 @@ import { actionTypes } from '../store';
 
 const Navbar = () => {
   const { store, dispatch } = useGlobalReducer();
+
+  const handleDeleteFavourite = (name, isFavFunction) => {
+    isFavFunction(false);
+    dispatch({ type: actionTypes.deleteFav, payload: name });
+  };
   return (
     <nav className='navbar navbar-light bg-light px-5 mb-4'>
       <div className='container-fluid'>
@@ -28,16 +33,14 @@ const Navbar = () => {
             &nbsp;
           </a>
 
-          <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
+          <ul className='dropdown-menu dropdown-menu-end' aria-labelledby='navbarDropdown'>
             {store.favourites.length > 0 ? (
-              store.favourites.map((item) => {
+              store.favourites.map(({ name, isFavFunction }) => {
                 return (
-                  <li key={item} className='dropdown-item'>
-                    {item}{' '}
-                    <i
-                      onClick={() => dispatch({ type: actionTypes.deleteFav, payload: item })}
-                      className='fa-solid fa-trash'
-                    ></i>
+                  <li key={name} className='dropdown-item'>
+                    {name}
+                    &nbsp;&nbsp;
+                    <i onClick={() => handleDeleteFavourite(name, isFavFunction)} className='fa-solid fa-trash'></i>
                   </li>
                 );
               })

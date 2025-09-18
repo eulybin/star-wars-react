@@ -33,18 +33,29 @@ export default function storeReducer(store, action = {}) {
         vehicles: action.payload,
       };
 
+    // add item for favourites array
     case actionTypes.addToFav:
-      if (!store.favourites.includes(action.payload.name)) {
+      const favNamesArr = [];
+      for (const favObj of store.favourites) {
+        favNamesArr.push(favObj.name);
+      }
+
+      console.log('FAV NAMES ARR: ', favNamesArr);
+      if (!favNamesArr.includes(action.payload.name)) {
         return {
           ...store,
-          favourites: [...store.favourites, action.payload.name],
+          favourites: [
+            ...store.favourites,
+            { name: action.payload.name, isFavFunction: action.payload.setIsFavourite },
+          ],
         };
       } else {
         return store;
       }
 
+    // delete item from favourites array
     case actionTypes.deleteFav:
-      const updatedFavArray = store.favourites.filter((fav) => fav !== action.payload);
+      const updatedFavArray = store.favourites.filter(({ name }) => name !== action.payload);
       return {
         ...store,
         favourites: updatedFavArray,

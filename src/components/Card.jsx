@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import { actionTypes } from '../store';
 
 const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population, model, crew, manufacturer }) => {
-  const { store, dispatch } = useGlobalReducer();
+  const { dispatch } = useGlobalReducer();
   const [isFavourite, setIsFavourite] = useState(false);
 
   const handleAddToFav = () => {
     setIsFavourite((prevFavState) => !prevFavState);
-    dispatch({ type: actionTypes.addToFav, payload: { name, isFavourite } });
+    dispatch({ type: actionTypes.addToFav, payload: { name, setIsFavourite } });
   };
 
   return (
@@ -37,7 +37,6 @@ const Card = ({ name, gender, hairColor, eyeColor, terrain, diameter, population
             <i className={`fa-${isFavourite ? 'solid' : 'regular'} fa-heart fs-3`}></i>
           </button>
         </div>
-        {isFavourite && <p>fav</p>}
       </div>
     </div>
   );
