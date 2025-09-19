@@ -4,7 +4,9 @@ import { useEffect } from 'react';
 import { getAllCharacters } from '../services/charactersService.js';
 import { getAllPlanets } from '../services/planetsService.js';
 import { getAllVehicles } from '../services/vehiclesService.js';
-import Card from '../components/Card.jsx';
+import CharacterCard from '../components/Cards/CharacterCard.jsx';
+import PlanetCard from '../components/Cards/PlanetCard.jsx';
+import VehicleCard from '../components/Cards/VehicleCard.jsx';
 
 const Home = () => {
   const { store, dispatch } = useGlobalReducer();
@@ -31,9 +33,8 @@ const Home = () => {
           store.characters.map((character, index) => {
             return (
               <div key={index} className='col-xxl-3 col-lg-4 col-md-6 mb-5'>
-                <Card
+                <CharacterCard
                   id={index + 1}
-                  entity={'characters'}
                   name={character.name}
                   gender={character.gender}
                   hairColor={character['hair_color']}
@@ -51,9 +52,8 @@ const Home = () => {
           store.planets.map((planet, index) => {
             return (
               <div key={index} className='col-xxl-3 col-lg-4 col-md-6 mb-5'>
-                <Card
+                <PlanetCard
                   id={index + 1}
-                  entity={'planets'}
                   name={planet.name}
                   population={planet.population}
                   diameter={planet.diameter}
@@ -71,9 +71,8 @@ const Home = () => {
           store.vehicles.map((vehicle, index) => {
             return (
               <div key={index} className='col-xxl-3 col-lg-4 col-md-6 mb-5'>
-                <Card
+                <VehicleCard
                   id={index + 1}
-                  entity={'vehicles'}
                   name={vehicle.name}
                   model={vehicle.model}
                   crew={vehicle.crew}
