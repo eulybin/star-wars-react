@@ -32,13 +32,31 @@ const PlanetDetails = () => {
         </div>
       </div>
       <div className='divider'></div>
-      <div className='row'>
-        <div className='col-2'>{planetObj.climate}</div>
-        <div className='col-2'>{planetObj.diameter}</div>
-        <div className='col-2'>{planetObj.terrain}</div>
-        <div className='col-2'>{planetObj.gravity}</div>
-        <div className='col-2'>{planetObj.orbitalPeriod}</div>
-        <div className='col-2'>{planetObj.population}</div>
+      <div className='row d-flex justify-content-center align-items-center info-row text-danger text-center'>
+        <div className='col-lg-2 p-3'>
+          <h3>Population:</h3>
+          <span>{planetObj.population}</span>
+        </div>
+        <div className='col-lg-2 p-3'>
+          <h3>Climate:</h3>
+          <span>{planetObj.climate}</span>
+        </div>
+        <div className='col-lg-2 p-3'>
+          <h3>Terrain:</h3>
+          <span>{planetObj.terrain}</span>
+        </div>
+        <div className='col-lg-2 p-3'>
+          <h3>Gravity:</h3>
+          <span>{planetObj.gravity}</span>
+        </div>
+        <div className='col-lg-2 p-3'>
+          <h3>Orbital Period:</h3>
+          <span>{planetObj.orbitalPeriod}</span>
+        </div>
+        <div className='col-lg-2 p-3'>
+          <h3>Diameter:</h3>
+          <span>{planetObj.diameter}</span>
+        </div>
       </div>
     </div>
   );
