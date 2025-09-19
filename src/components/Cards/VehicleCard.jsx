@@ -1,6 +1,7 @@
 import useGlobalReducer from '../../hooks/useGlobalReducer';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { actionTypes } from '../../store';
 
 const VehicleCard = ({ id, name, model, crew, manufacturer }) => {
   const { dispatch } = useGlobalReducer();

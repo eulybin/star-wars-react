@@ -1,6 +1,7 @@
 import useGlobalReducer from '../../hooks/useGlobalReducer';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { actionTypes } from '../../store';
 
 const PlanetCard = ({ id, name, population, diameter, terrain }) => {
   const { dispatch } = useGlobalReducer();
