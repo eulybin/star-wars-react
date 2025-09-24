@@ -20,7 +20,7 @@ body {
 
 .divider {
   height: 2px;
-  background-color: rgb(243, 28, 28);
+  background-color: rgb(243, 210, 28);
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -41,11 +41,4 @@ body {
 .heart-icon:hover {
   background-color: #dc3444;
   color: white;
-}
-
-.info-row div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }

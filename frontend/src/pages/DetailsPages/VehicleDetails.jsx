@@ -32,31 +32,13 @@ const VehicleDetails = () => {
         </div>
       </div>
       <div className='divider'></div>
-      <div className='row d-flex justify-content-center align-items-center info-row text-danger text-center'>
-        <div className='col-lg-2 p-3'>
-          <h3>Crew:</h3>
-          <span>{vehicleObj.crew}</span>
-        </div>
-        <div className='col-lg-2 p-3'>
-          <h3>Model:</h3>
-          <span>{vehicleObj.model}</span>
-        </div>
-        <div className='col-lg-2 p-3'>
-          <h3>Company:</h3>
-          <span className='text-center'>{vehicleObj.manufacturer}</span>
-        </div>
-        <div className='col-lg-2 p-3'>
-          <h3>Vehicle Class:</h3>
-          <span>{vehicleObj.vehicleClass}</span>
-        </div>
-        <div className='col-lg-2 p-3'>
-          <h3>Capacity:</h3>
-          <span>{vehicleObj.cargoCapacity}</span>
-        </div>
-        <div className='col-lg-2 p-3'>
-          <h3>Length:</h3>
-          <span>{vehicleObj.length}m</span>
-        </div>
+      <div className='row'>
+        <div className='col-2'>{vehicleObj.crew}</div>
+        <div className='col-2'>{vehicleObj.model}</div>
+        <div className='col-2'>{vehicleObj.manufacturer}</div>
+        <div className='col-2'>{vehicleObj.length}</div>
+        <div className='col-2'>{vehicleObj.cargoCapacity}</div>
+        <div className='col-2'>{vehicleObj.vehicleClass}</div>
       </div>
     </div>
   );

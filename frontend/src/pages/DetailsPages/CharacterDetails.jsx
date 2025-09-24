@@ -32,31 +32,13 @@ const CharacterDetails = () => {
         </div>
       </div>
       <div className='divider'></div>
-      <div className='row d-flex justify-content-center align-items-center info-row text-danger text-center'>
-        <div className='col-lg-2 p-3'>
-          <h3>Height:</h3>
-          <span>{characterObj.height}cm</span>
-        </div>
-        <div className='col-lg-2 p-3'>
-          <h3>Birth Year:</h3>
-          <span>{characterObj.birthYear}</span>
-        </div>
-        <div className='col-lg-2 p-3'>
-          <h3>Gender:</h3>
-          <span>{characterObj.gender}</span>
-        </div>
-        <div className='col-lg-2 p-3'>
-          <h3>Eye Color:</h3>
-          <span>{characterObj.eyeColor}</span>
-        </div>
-        <div className='col-lg-2 p-3'>
-          <h3>Mass:</h3>
-          <span>{characterObj.mass}kg</span>
-        </div>
-        <div className='col-lg-2 p-3'>
-          <h3>Skin Color:</h3>
-          <span>{characterObj.skinColor}</span>
-        </div>
+      <div className='row'>
+        <div className='col-2'>{characterObj.height}</div>
+        <div className='col-2'>{characterObj.birthYear}</div>
+        <div className='col-2'>{characterObj.gender}</div>
+        <div className='col-2'>{characterObj.eyeColor}</div>
+        <div className='col-2'>{characterObj.mass}</div>
+        <div className='col-2'>{characterObj.skinColor}</div>
       </div>
     </div>
   );
